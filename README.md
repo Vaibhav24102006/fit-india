@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Fit India - Health & Fitness Platform
 
 A modern, responsive health and fitness website with AI-powered diet planning, product catalog, and comprehensive wellness solutions.
@@ -238,3 +239,10 @@ For support and questions:
 ---
 
 **Built with ❤️ for the Reckon 6.0 Hackathon** 
+=======
+🏋️‍♂️ Fit India – Digital Fitness & Wellness Platform
+
+Fit India is a web application designed to encourage a healthy and active lifestyle by providing users with structured fitness content, goal tracking, and wellness awareness. The project aligns with the Fit India initiative by promoting physical fitness through technology.
+
+The platform focuses on simplicity, accessibility, and user engagement, making fitness guidance easy to understand and follow for users of all age groups.
+>>>>>>> origin/main
