@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit India - Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-auth-compat.js"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Admin Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="assets/images/products/p_c1eba946-f66b-11ef-80de-7689b6204309_wm.png" alt="Fit India Logo" class="h-12 w-auto mr-3">
+                    <span class="text-2xl font-bold text-gray-800">Admin Dashboard</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span id="admin-email" class="text-gray-600"></span>
+                    <button id="logout-btn" class="text-red-600 hover:text-red-800">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white shadow-md">
+            <div class="p-4">
+                <nav class="space-y-2">
+                    <button class="w-full text-left px-4 py-2 rounded-lg hover:bg-green-50 text-green-600 font-medium tab-btn active" data-tab="dashboard">
+                        Dashboard Overview
+                    </button>
+                    <button class="w-full text-left px-4 py-2 rounded-lg hover:bg-green-50 text-gray-700 hover:text-green-600 tab-btn" data-tab="users">
+                        User Management
+                    </button>
+                    <button class="w-full text-left px-4 py-2 rounded-lg hover:bg-green-50 text-gray-700 hover:text-green-600 tab-btn" data-tab="health">
+                        Health Records
+                    </button>
+                    <button class="w-full text-left px-4 py-2 rounded-lg hover:bg-green-50 text-gray-700 hover:text-green-600 tab-btn" data-tab="meals">
+                        Meal Plans
+                    </button>
+                    <button class="w-full text-left px-4 py-2 rounded-lg hover:bg-green-50 text-gray-700 hover:text-green-600 tab-btn" data-tab="products">
+                        Product Management
+                    </button>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8">
+            <!-- Dashboard Overview -->
+            <div id="dashboard" class="tab-content active">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <!-- Stats Cards -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Total Users</h3>
+                        <p class="text-3xl font-bold text-green-600">4</p>
+                        <p class="text-sm text-gray-500 mt-2">↑ 12% from last month</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Active Meal Plans</h3>
+                        <p class="text-3xl font-bold text-green-600">18</p>
+                        <p class="text-sm text-gray-500 mt-2">↑ 8% from last month</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Total Products</h3>
+                        <p class="text-3xl font-bold text-green-600">15</p>
+                        <p class="text-sm text-gray-500 mt-2">↑ 5% from last month</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Revenue</h3>
+                        <p class="text-3xl font-bold text-green-600">₹1.2k</p>
+                        <p class="text-sm text-gray-500 mt-2">↑ 15% from last month</p>
+                    </div>
+                </div>
+
+                <!-- Charts Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <!-- User Growth Chart -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">User Growth</h3>
+                        <canvas id="userGrowthChart"></canvas>
+                    </div>
+                    
+                    <!-- Diet Distribution Chart -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Diet Plan Distribution</h3>
+                        <canvas id="dietDistributionChart"></canvas>
+                    </div>
+
+                    <!-- User Activity Chart -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Weekly User Activity</h3>
+                        <canvas id="userActivityChart"></canvas>
+                    </div>
+
+                    <!-- Health Metrics Chart -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Health Metrics Overview</h3>
+                        <canvas id="healthMetricsChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Recent Activity</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between border-b pb-4">
+                            <div>
+                                <p class="font-medium text-gray-800">New user registration</p>
+                                <p class="text-sm text-gray-500">John Doe registered an account</p>
+                            </div>
+                            <span class="text-sm text-gray-500">2 minutes ago</span>
+                        </div>
+                        <div class="flex items-center justify-between border-b pb-4">
+                            <div>
+                                <p class="font-medium text-gray-800">Meal plan created</p>
+                                <p class="text-sm text-gray-500">New vegetarian meal plan created</p>
+                            </div>
+                            <span class="text-sm text-gray-500">15 minutes ago</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="font-medium text-gray-800">Product updated</p>
+                                <p class="text-sm text-gray-500">Updated protein supplement stock</p>
+                            </div>
+                            <span class="text-sm text-gray-500">1 hour ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Management -->
+            <div id="users" class="tab-content hidden">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-xl font-semibold text-gray-800">User Management</h2>
+                        <button class="btn-primary">Add New User</button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Join Date</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <!-- Sample user rows -->
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">John Doe</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">john@example.com</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">2024-01-15</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        <button class="text-blue-600 hover:text-blue-800 mr-2">Edit</button>
+                                        <button class="text-red-600 hover:text-red-800">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Health Records -->
+            <div id="health" class="tab-content hidden">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-xl font-semibold text-gray-800">Health Records</h2>
+                        <div class="flex space-x-4">
+                            <select class="select-field">
+                                <option>All Records</option>
+                                <option>Last 7 Days</option>
+                                <option>Last 30 Days</option>
+                            </select>
+                            <button class="btn-primary">Export Data</button>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">User</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">BMI</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Weight</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Height</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Updated</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <!-- Sample health record rows -->
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">John Doe</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">22.5</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">75 kg</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">175 cm</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">2024-02-15</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meal Plans -->
+            <div id="meals" class="tab-content hidden">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-xl font-semibold text-gray-800">Meal Plans</h2>
+                        <button class="btn-primary">Create New Plan</button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Sample meal plan cards -->
+                        <div class="border rounded-lg p-4">
+                            <h3 class="font-semibold text-lg mb-2">Vegetarian Weight Loss</h3>
+                            <p class="text-gray-600 text-sm mb-4">1500 calories per day</p>
+                            <div class="space-y-2">
+                                <p class="text-sm"><span class="font-medium">Breakfast:</span> Oatmeal with fruits</p>
+                                <p class="text-sm"><span class="font-medium">Lunch:</span> Quinoa bowl</p>
+                                <p class="text-sm"><span class="font-medium">Dinner:</span> Lentil curry</p>
+                            </div>
+                            <div class="mt-4 flex justify-end space-x-2">
+                                <button class="text-blue-600 hover:text-blue-800">Edit</button>
+                                <button class="text-red-600 hover:text-red-800">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Management -->
+            <div id="products" class="tab-content hidden">
+                <!-- Product Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Total Products</h3>
+                        <p id="total-products" class="text-3xl font-bold text-green-600">0</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Low Stock Items</h3>
+                        <p id="low-stock" class="text-3xl font-bold text-yellow-600">0</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Out of Stock</h3>
+                        <p id="out-of-stock" class="text-3xl font-bold text-red-600">0</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Total Value</h3>
+                        <p id="total-value" class="text-3xl font-bold text-blue-600">₹0</p>
+                    </div>
+                </div>
+
+                <!-- Product Management Tools -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="flex items-center space-x-4">
+                            <h2 class="text-xl font-semibold text-gray-800">Product Management</h2>
+                            <div class="flex space-x-4">
+                                <select id="category-filter" class="select-field">
+                                    <option value="all">All Categories</option>
+                                    <option value="supplements">Supplements</option>
+                                    <option value="equipment">Equipment</option>
+                                    <option value="nutrition">Nutrition</option>
+                                </select>
+                                <select id="stock-filter" class="select-field">
+                                    <option value="all">All Stock Levels</option>
+                                    <option value="low">Low Stock</option>
+                                    <option value="out">Out of Stock</option>
+                                    <option value="available">Available</option>
+                                </select>
+                                <input type="text" id="product-search" placeholder="Search products..." class="input-field">
+                            </div>
+                        </div>
+                        <button id="add-product-btn" class="btn-primary">Add New Product</button>
+                    </div>
+
+                    <!-- Products Table -->
+                    <div class="overflow-x-auto">
+                        <table id="products-table" class="min-w-full">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Product</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stock</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <!-- Products will be dynamically inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Product Charts -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Category Distribution</h3>
+                        <canvas id="category-distribution-chart"></canvas>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Stock Levels</h3>
+                        <canvas id="stock-levels-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Product Modal -->
+    <div id="product-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden">
+        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+            <div class="mt-3">
+                <h3 class="text-lg font-medium text-gray-900" id="modal-title">Add New Product</h3>
+                <form id="product-form" class="mt-4">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Name</label>
+                            <input type="text" name="name" required class="input-field w-full">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Category</label>
+                            <select name="category" required class="select-field w-full">
+                                <option value="supplements">Supplements</option>
+                                <option value="equipment">Equipment</option>
+                                <option value="nutrition">Nutrition</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Price</label>
+                            <input type="number" name="price" required class="input-field w-full">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Stock</label>
+                            <input type="number" name="stock" required class="input-field w-full">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Description</label>
+                            <textarea name="description" required class="input-field w-full"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Image URL</label>
+                            <input type="url" name="image" required class="input-field w-full">
+                        </div>
+                    </div>
+                    <div class="mt-5 flex justify-end space-x-3">
+                        <button type="button" onclick="productManager.hideProductModal()" class="btn-secondary">
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn-primary">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="assets/js/admin/charts.js"></script>
+    <script type="module" src="assets/js/admin/user-management.js"></script>
+    <script type="module" src="assets/js/admin/health-records.js"></script>
+    <script type="module" src="assets/js/admin/meal-plans.js"></script>
+    <script type="module">
+        import { auth } from './assets/js/firebase-config.js';
+        import { onAuthStateChanged, signOut } from 'firebase/auth';
+
+        // Tab switching functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.dataset.tab;
+                
+                // Update button states
+                tabBtns.forEach(b => b.classList.remove('active', 'text-green-600', 'bg-green-50'));
+                btn.classList.add('active', 'text-green-600', 'bg-green-50');
+                
+                // Update content visibility
+                tabContents.forEach(content => {
+                    content.classList.add('hidden');
+                    if (content.id === tabId) {
+                        content.classList.remove('hidden');
+                    }
+                });
+            });
+        });
+
+        // Authentication state observer
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                document.getElementById('admin-email').textContent = user.email;
+            } else {
+                window.location.href = 'admin.html';
+            }
+        });
+
+        // Logout functionality
+        document.getElementById('logout-btn').addEventListener('click', async () => {
+            try {
+                await signOut(auth);
+                window.location.href = 'admin.html';
+            } catch (error) {
+                console.error('Error signing out:', error);
+            }
+        });
+    </script>
+</body>
+</html> 

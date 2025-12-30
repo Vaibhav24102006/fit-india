@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Fit India</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="assets/js/about.js" defer></script>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-lg">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center">
+            <img
+              src="assets/images/products/p_c1eba946-f66b-11ef-80de-7689b6204309_wm.png"
+              alt="Fit India Logo"
+              class="h-12 w-auto mr-3 transition-transform hover:scale-105"
+            />
+            <a href="index.html" class="nav-logo text-2xl font-bold"
+              >Fit India</a
+            >
+            <!-- Fixed absolute path -->
+          </div>
+          <div class="hidden md:flex space-x-8">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About Us</a>
+            <a href="chatbot.html" class="nav-link">Chat Bot</a>
+            <a href="categories.html" class="nav-link">Categories</a>
+            <a href="products.html" class="nav-link">Products</a>
+            <a href="cart.html" class="nav-link relative">
+              <span
+                class="absolute -top-2 -right-2 bg-green-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center cart-count"
+                >0</span
+              >
+              Cart
+            </a>
+          </div>
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden">
+            <button class="mobile-menu-button">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-lg">
+      <!-- Copy existing nav structure -->
+    </nav>
+    <section class="relative h-96 overflow-hidden mb-12">
+      <!-- Background Image -->
+      <div class="absolute inset-0">
+        <img
+          src="assets/images/products/p_0622b554-f839-11ef-8061-7a64be160cf6.jpg"
+          alt="Fitness Background"
+          class="w-full h-full object-cover"
+        />
+        <!-- Gradient Overlay -->
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-green-900/70 to-green-600/70"
+        ></div>
+      </div>
+
+      <!-- Content -->
+      <div
+        class="relative z-10 flex items-center justify-center h-full text-white px-4"
+      >
+        <div class="text-center max-w-4xl">
+          <h1 class="text-5xl font-bold mb-6">About Fit India</h1>
+          <p class="text-xl opacity-90">
+            Empowering millions of Indians to achieve their fitness goals
+            through innovative technology and expert guidance. Join us in our
+            mission to create a healthier India.
+          </p>
+          <div class="flex justify-center space-x-4 mt-8">
+            <div class="text-center">
+              <span class="block text-4xl font-bold">10K+</span>
+              <span class="text-sm opacity-80">Active Users</span>
+            </div>
+            <div class="text-center">
+              <span class="block text-4xl font-bold">50+</span>
+              <span class="text-sm opacity-80">Expert Trainers</span>
+            </div>
+            <div class="text-center">
+              <span class="block text-4xl font-bold">95%</span>
+              <span class="text-sm opacity-80">Success Rate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden bg-green-50 py-20">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center">
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Our Mission
+          </h1>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Empowering Indians to achieve their fitness goals through
+            technology, guidance, and premium health solutions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Quote Section -->
+    <section class="relative h-screen overflow-hidden">
+      <!-- Video Background -->
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        class="absolute top-0 left-0 min-w-full min-h-full object-cover z-0"
+      >
+                  <source
+            src="assets/videos/353762409193402377.mp4"
+            type="video/mp4"
+          />
+      </video>
+
+      <!-- Dark Overlay -->
+      <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+
+      <!-- Quote Content -->
+      <div class="relative z-20 flex items-center justify-center h-full text-white px-4">
+        <div class="max-w-4xl text-center quote-content">
+          <svg 
+            class="w-12 h-12 mx-auto mb-6 text-green-400" 
+            fill="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+          </svg>
+          <h2 class="text-4xl md:text-5xl font-bold mb-6">Transform Your Life Through Fitness</h2>
+          <p class="text-xl md:text-2xl mb-8">
+            "The only bad workout is the one that didn't happen. Every step forward, no matter how small, is a step towards a healthier you."
+          </p>
+          <p class="text-lg text-green-400 font-semibold">- Fit India Philosophy</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">Our Core Values</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Innovation Value Card -->
+          <div class="value-card">
+            <div class="value-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Innovation</h3>
+            <p class="text-gray-600">
+              Leveraging technology to revolutionize fitness and wellness in
+              India.
+            </p>
+          </div>
+
+          <!-- Health & Wellness Value Card -->
+          <div class="value-card">
+            <div class="value-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Health & Wellness</h3>
+            <p class="text-gray-600">
+              Prioritizing scientifically backed nutrition for better living.
+            </p>
+          </div>
+
+          <!-- User-Centric Approach Value Card -->
+          <div class="value-card">
+            <div class="value-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">User-Centric Approach</h3>
+            <p class="text-gray-600">
+              Tailoring fitness and diet solutions for every individual.
+            </p>
+          </div>
+
+          <!-- Trust & Transparency Value Card -->
+          <div class="value-card">
+            <div class="value-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Trust & Transparency</h3>
+            <p class="text-gray-600">
+              Providing accurate, evidence-based guidance with honesty.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">Meet Our Team</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="team-card">
+            <img
+              src="assets/images/team/member1.jpg"
+              alt="Team Member"
+              class="rounded-full w-32 h-32 mx-auto mb-4"
+            />
+            <h3 class="text-xl font-bold mb-1">John Doe</h3>
+            <p class="text-gray-600">Fitness Expert</p>
+          </div>
+          <!-- New Team Member 2 -->
+          <div class="team-card">
+            <img
+              src="assets/images/team/member2.jpg"
+              alt="Team Member"
+              class="rounded-full w-32 h-32 mx-auto mb-4"
+            />
+            <h3 class="text-xl font-bold mb-1">Sarah Johnson</h3>
+            <p class="text-gray-600">Nutrition Specialist</p>
+          </div>
+          <!-- New Team Member 3 -->
+          <div class="team-card">
+            <img
+              src="assets/images/team/member3.jpg"
+              alt="Team Member"
+              class="rounded-full w-32 h-32 mx-auto mb-4"
+            />
+            <h3 class="text-xl font-bold mb-1">Raj Patel</h3>
+            <p class="text-gray-600">Yoga Instructor</p>
+          </div>
+          <!-- New Team Member 4 -->
+          <div class="team-card">
+            <img
+              src="assets/images/team/member4.jpg"
+              alt="Team Member"
+              class="rounded-full w-32 h-32 mx-auto mb-4"
+            />
+            <h3 class="text-xl font-bold mb-1">Priya Sharma</h3>
+            <p class="text-gray-600">Wellness Coach</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex flex-col items-center mb-6">
+          <!-- Remove this image -->
+          <!-- <img 
+                      src="images/products/p_c1eba946-f66b-11ef-80de-7689b6204309_wm.png" 
+                      alt="Fit India Logo" 
+                      class="h-16 w-auto mb-4 transition-transform hover:scale-105"
+                  > -->
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 py-8">
+          <!-- Company Info -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Fit India</h3>
+            <p class="text-gray-600 text-sm">
+              Your trusted partner in health and fitness journey.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">
+              Quick Links
+            </h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="chatbot.html"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >Diet Planner</a
+                >
+              </li>
+              <li>
+                <a
+                  href="products.html"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >Shop</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Products -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Products</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="products.html?category=supplements"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >Supplements</a
+                >
+              </li>
+              <li>
+                <a
+                  href="products.html?category=equipment"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >Fitness Equipment</a
+                >
+              </li>
+              <li>
+                <a
+                  href="products.html?category=nutrition"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >Nutrition</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Contact Us</h3>
+            <ul class="space-y-2">
+              <li class="text-gray-600 text-sm">Email: support@fitindia.com</li>
+              <li class="text-gray-600 text-sm">Phone: +91 123-456-7890</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-gray-200 py-4">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-600 text-sm">
+              © 2024 Fit India. All rights reserved.
+            </p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+              <a
+                href="/privacy"
+                class="text-gray-600 hover:text-green-600 text-sm"
+                >Privacy Policy</a
+              >
+              <a
+                href="/terms"
+                class="text-gray-600 hover:text-green-600 text-sm"
+                >Terms of Service</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="assets/js/nav.js" defer></script>
+  </body>
+</html>

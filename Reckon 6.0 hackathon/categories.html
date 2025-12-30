@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Categories - Fit India</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="js/categories.js" defer></script>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-lg">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center">
+            <img
+              src="images/products/p_c1eba946-f66b-11ef-80de-7689b6204309_wm.png"
+              alt="Fit India Logo"
+              class="h-12 w-auto mr-3 transition-transform hover:scale-105"
+            />
+            <a href="index.html" class="nav-logo text-2xl font-bold"
+              >Fit India</a
+            >
+            <!-- Fixed absolute path -->
+          </div>
+          <div class="hidden md:flex space-x-8">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About Us</a>
+            <a href="chatbot.html" class="nav-link">Chat Bot</a>
+            <a href="categories.html" class="nav-link">Categories</a>
+            <a href="products.html" class="nav-link">Products</a>
+            <a href="cart.html" class="nav-link relative">
+              <span
+                class="absolute -top-2 -right-2 bg-green-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center cart-count"
+                >0</span
+              >
+              Cart
+            </a>
+          </div>
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden">
+            <button class="mobile-menu-button">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-lg">
+      <!-- Copy existing nav structure -->
+    </nav>
+
+    <!-- Categories Grid -->
+      <!-- Add after nav and before main content -->
+      <section class="relative h-screen overflow-hidden">
+        <!-- Video Background -->
+        <video
+          autoplay
+          loop
+          muted
+          playsinline
+          class="absolute top-0 left-0 min-w-full min-h-full object-cover z-0"
+        >
+          <source
+            src="C:\Users\Public\Downloads\99d157c9-33fa-4bb2-b4bc-4a2ea4f64e98_wm.mp4"
+            type="video/mp4"
+          />
+        </video>
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+
+        <!-- Content -->
+        <div
+          class="relative z-20 flex items-center justify-center h-full text-white px-4"
+        >
+          <div class="max-w-3xl text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">
+              Explore Our Categories
+            </h1>
+            <p class="text-xl md:text-2xl">
+              Discover our curated selection of premium fitness and wellness
+              products designed to support your health journey.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Update main section margin -->
+      <main class="max-w-7xl mx-auto px-4 py-12 relative z-30 bg-white">
+        <!-- ... existing main content ... -->
+      </main>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Supplements Category -->
+        <div class="category-card" data-category="supplements">
+          <div class="aspect-w-16 aspect-h-9">
+            <img
+              src="images/categories/supplements.jpg"
+              alt="Supplements"
+              class="object-cover rounded-t-lg"
+            />
+          </div>
+          <div class="p-6">
+            <h2 class="text-2xl font-bold mb-2">Supplements</h2>
+            <p class="text-gray-600 mb-4">
+              Premium quality supplements for your fitness journey.
+            </p>
+            <a
+              href="products.html?category=supplements"
+              class="btn-primary inline-block"
+            >
+              Explore Supplements
+            </a>
+          </div>
+        </div>
+
+        <!-- Equipment Category -->
+        <div class="category-card" data-category="equipment">
+          <!-- Similar structure -->
+        </div>
+
+        <!-- Nutrition Category -->
+        <div class="category-card" data-category="nutrition">
+          <!-- Similar structure -->
+        </div>
+      </div>
+
+      <!-- Featured Products -->
+      <section class="mt-16">
+        <h2 class="text-2xl font-bold mb-8">Featured Products</h2>
+        <div
+          class="grid grid-cols-1 md:grid-cols-4 gap-6"
+          id="featured-products"
+        >
+          <!-- Products will be dynamically loaded -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex flex-col items-center mb-6">
+          <!-- Remove this image -->
+          <!-- <img 
+                          src="images/products/p_c1eba946-f66b-11ef-80de-7689b6204309_wm.png" 
+                          alt="Fit India Logo" 
+                          class="h-16 w-auto mb-4 transition-transform hover:scale-105"
+                      > -->
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 py-8">
+          <!-- Company Info -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Fit India</h3>
+            <p class="text-gray-600 text-sm">
+              Your trusted partner in health and fitness journey.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">
+              Quick Links
+            </h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="chatbot.html"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >Diet Planner</a
+                >
+              </li>
+              <li>
+                <a
+                  href="products.html"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >Shop</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Products -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Products</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="products.html?category=supplements"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >Supplements</a
+                >
+              </li>
+              <li>
+                <a
+                  href="products.html?category=equipment"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >Fitness Equipment</a
+                >
+              </li>
+              <li>
+                <a
+                  href="products.html?category=nutrition"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >Nutrition</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Contact Us</h3>
+            <ul class="space-y-2">
+              <li class="text-gray-600 text-sm">Email: support@fitindia.com</li>
+              <li class="text-gray-600 text-sm">Phone: +91 123-456-7890</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-gray-200 py-4">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-600 text-sm">
+              © 2024 Fit India. All rights reserved.
+            </p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+              <a
+                href="/privacy"
+                class="text-gray-600 hover:text-green-600 text-sm"
+                >Privacy Policy</a
+              >
+              <a
+                href="/terms"
+                class="text-gray-600 hover:text-green-600 text-sm"
+                >Terms of Service</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/nav.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fit India - Diet Planner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-lg">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center">
+            <img
+              src="assets/images/products/p_c1eba946-f66b-11ef-80de-7689b6204309_wm.png"
+              alt="Fit India Logo"
+              class="h-12 w-auto mr-3 transition-transform hover:scale-105"
+            />
+            <a href="index.html" class="nav-logo text-2xl font-bold"
+              >Fit India</a
+            >
+          </div>
+          <div class="hidden md:flex items-center space-x-8 nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About Us</a>
+            <a href="chatbot.html" class="nav-link">Diet Planner</a>
+            <a href="categories.html" class="nav-link">Categories</a>
+            <a href="products.html" class="nav-link">Products</a>
+            <a href="cart.html" class="nav-link relative">
+              <span
+                class="absolute -top-2 -right-2 bg-green-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center cart-count"
+                >0</span
+              >
+              Cart
+            </a>
+            <a href="admin.html" class="nav-link flex items-center" id="admin-link">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 mr-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <span class="admin-text">Admin</span>
+            </a>
+          </div>
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden">
+            <button class="mobile-menu-button">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu hidden md:hidden">
+      <a href="index.html" class="block py-2 px-4 text-sm hover:bg-gray-200"
+        >Home</a
+      >
+      <a href="about.html" class="block py-2 px-4 text-sm hover:bg-gray-200"
+        >About Us</a
+      >
+      <a href="chatbot.html" class="block py-2 px-4 text-sm hover:bg-gray-200"
+        >Diet Planner</a
+      >
+      <a
+        href="categories.html"
+        class="block py-2 px-4 text-sm hover:bg-gray-200"
+        >Categories</a
+      >
+      <a href="products.html" class="block py-2 px-4 text-sm hover:bg-gray-200"
+        >Products</a
+      >
+      <a href="cart.html" class="block py-2 px-4 text-sm hover:bg-gray-200"
+        >Cart</a
+      >
+      <a href="admin.html" class="block py-2 px-4 text-sm hover:bg-gray-200 flex items-center" id="admin-link-mobile">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        Admin Panel
+      </a>
+    </div>
+
+    <main class="max-w-4xl mx-auto px-4 py-8">
+      <div class="card p-6">
+        <h2 class="text-2xl font-bold text-green-600 mb-6">
+          Get Your Personalized Diet Plan
+        </h2>
+
+        <form id="diet-form" class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-medium text-gray-700"
+                >Diet Type</label
+              >
+              <select id="diet-type" class="select-field w-full">
+                <option value="vegetarian">Vegetarian</option>
+                <option value="non-veg">Non-Vegetarian</option>
+                <option value="vegan">Vegan</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700"
+                >Gender</label
+              >
+              <select id="gender" class="select-field w-full">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Age</label>
+              <input type="number" id="age" class="input-field w-full" min="1" max="120" />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700"
+                >Height (cm)</label
+              >
+              <input type="number" id="height" class="input-field w-full" min="1" max="300" />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700"
+                >Weight (kg)</label
+              >
+              <input type="number" id="weight" class="input-field w-full" min="1" max="500" />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700"
+                >Activity Level</label
+              >
+              <select id="activity-level" class="select-field w-full">
+                <option value="sedentary">Sedentary</option>
+                <option value="moderate">Moderate</option>
+                <option value="active">Active</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="flex justify-center mt-6">
+            <button type="submit" class="uiverse">
+              <div class="wrapper">
+                <span>Get Diet Plan</span>
+                <div class="circle circle-12"></div>
+                <div class="circle circle-11"></div>
+                <div class="circle circle-10"></div>
+                <div class="circle circle-9"></div>
+                <div class="circle circle-8"></div>
+                <div class="circle circle-7"></div>
+                <div class="circle circle-6"></div>
+                <div class="circle circle-5"></div>
+                <div class="circle circle-4"></div>
+                <div class="circle circle-3"></div>
+                <div class="circle circle-2"></div>
+                <div class="circle circle-1"></div>
+              </div>
+            </button>
+          </div>
+        </form>
+
+        <div id="chat-container" class="mt-8">
+          <!-- Response will be displayed here -->
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 py-8">
+          <!-- Company Info -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Fit India</h3>
+            <p class="text-gray-600 text-sm">
+              Your trusted partner in health and fitness journey.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">
+              Quick Links
+            </h3>
+            <ul class="space-y-2 footer-links">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="chatbot.html"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >Diet Planner</a
+                >
+              </li>
+              <li>
+                <a
+                  href="products.html"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >Shop</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Products -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Products</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="products.html?category=supplements"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >Supplements</a
+                >
+              </li>
+              <li>
+                <a
+                  href="products.html?category=equipment"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >Fitness Equipment</a
+                >
+              </li>
+              <li>
+                <a
+                  href="products.html?category=nutrition"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >Nutrition</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Contact Us</h3>
+            <ul class="space-y-2">
+              <li class="text-gray-600 text-sm">Email: support@fitindia.com</li>
+              <li class="text-gray-600 text-sm">Phone: +91 123-456-7890</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-gray-200 py-4">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-600 text-sm">
+              © 2024 Fit India. All rights reserved.
+            </p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+              <a
+                href="/privacy"
+                class="text-gray-600 hover:text-green-600 text-sm"
+                >Privacy Policy</a
+              >
+              <a
+                href="/terms"
+                class="text-gray-600 hover:text-green-600 text-sm"
+                >Terms of Service</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="assets/js/nav.js" defer></script>
+    <script src="assets/js/chatbot.js" defer></script>
+  </body>
+</html>

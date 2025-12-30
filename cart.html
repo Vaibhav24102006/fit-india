@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fit India - Shopping Cart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="assets/js/nav.js" defer></script>
+    <script src="assets/js/cart.js" defer></script>
+  </head>
+  <body>
+    <nav class="bg-white shadow-lg">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center">
+            <img
+              src="assets/images/products/p_c1eba946-f66b-11ef-80de-7689b6204309_wm.png"
+              alt="Fit India Logo"
+              class="h-12 w-auto mr-3 transition-transform hover:scale-105"
+            />
+            <a href="index.html" class="nav-logo text-2xl font-bold"
+              >Fit India</a
+            >
+            <!-- Fixed absolute path -->
+          </div>
+          <div class="hidden md:flex space-x-8">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About Us</a>
+            <a href="chatbot.html" class="nav-link">Chat Bot</a>
+            <a href="categories.html" class="nav-link">Categories</a>
+            <a href="products.html" class="nav-link">Products</a>
+            <a href="cart.html" class="nav-link relative">
+              <span
+                class="absolute -top-2 -right-2 bg-green-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center cart-count"
+                >0</span
+              >
+              Cart
+            </a>
+          </div>
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden">
+            <button class="mobile-menu-button">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 py-8">
+      <h1 class="text-2xl font-bold mb-6">Your Shopping Cart</h1>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Cart Items -->
+        <div class="lg:col-span-2">
+          <div id="cart-items" class="space-y-4">
+            <!-- Cart items will be dynamically inserted here -->
+          </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="lg:col-span-1">
+          <div class="bg-white rounded-lg shadow-md p-6 sticky top-4">
+            <h2 class="text-lg font-semibold mb-4">Order Summary</h2>
+            <div class="space-y-3">
+              <div class="flex justify-between">
+                <span class="text-gray-600">Subtotal</span>
+                <span id="subtotal" class="font-medium">₹0</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gray-600">Shipping</span>
+                <span id="shipping" class="font-medium">₹0</span>
+              </div>
+              <div class="border-t pt-3 mt-3">
+                <div class="flex justify-between">
+                  <span class="text-lg font-semibold">Total</span>
+                  <span id="total" class="text-lg font-semibold">₹0</span>
+                </div>
+              </div>
+            </div>
+            <button
+              onclick="cartManager.checkout()"
+              class="btn-primary w-full mt-6"
+            >
+              Proceed to Checkout
+            </button>
+            <p class="text-sm text-gray-500 mt-4">
+              Free shipping on orders over ₹999
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <!-- Copy the footer content from products.html -->
+    </footer>
+  </body>
+</html>

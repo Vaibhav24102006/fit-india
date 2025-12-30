@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta & SEO -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fit India - Your Personal Health Assistant</title>
+    <meta name="description" content="Fit India - Get personalized diet plans and health recommendations through our AI-powered chatbot" />
+    <meta name="keywords" content="fitness, health, diet, India, wellness, chatbot, supplements" />
+    <meta name="author" content="Fit India Team" />
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+    <!-- Google Fonts: Inter & Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <!-- Custom JavaScript -->
+    <script src="assets/js/nav.js" defer></script>
+    <script src="assets/js/products.js" defer></script>
+    <script src="assets/js/home.js" defer></script>
+    <script src="assets/js/error-handling.js" defer></script>
+    <script src="assets/js/verify-assets.js" defer></script>
+    <!--
+      All assets (CSS, JS, images) are now in /assets/ for clarity and reusability.
+      Remove any unused or redundant CSS/JS files from the project.
+    -->
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-lg">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center">
+            <img
+              src="assets/images/products/p_c1eba946-f66b-11ef-80de-7689b6204309_wm.png"
+              alt="Fit India Logo"
+              class="h-12 w-auto mr-3 transition-transform hover:scale-105"
+            />
+            <a href="index.html" class="nav-logo text-2xl font-bold"
+              >Fit India</a
+            >
+            <!-- Fixed absolute path -->
+          </div>
+          <div class="hidden md:flex space-x-8">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About Us</a>
+            <a href="chatbot.html" class="nav-link">Chat Bot</a>
+            <a href="categories.html" class="nav-link">Categories</a>
+            <a href="products.html" class="nav-link">Products</a>
+            <a href="cart.html" class="nav-link relative">
+              <span
+                class="absolute -top-2 -right-2 bg-green-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center cart-count"
+                >0</span
+              >
+              Cart
+            </a>
+          </div>
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden">
+            <button class="mobile-menu-button">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu hidden md:hidden">
+      <a href="index.html" class="block py-2 px-4 text-sm hover:bg-gray-200"
+        >Home</a
+      >
+      <a href="about.html" class="block py-2 px-4 text-sm hover:bg-gray-200"
+        >About Us</a
+      >
+      <a href="chatbot.html" class="block py-2 px-4 text-sm hover:bg-gray-200"
+        >Chat Bot</a
+      >
+      <a
+        href="categories.html"
+        class="block py-2 px-4 text-sm hover:bg-gray-200"
+        >Categories</a
+      >
+      <a href="products.html" class="block py-2 px-4 text-sm hover:bg-gray-200"
+        >Products</a
+      >
+    </div>
+
+    <!-- Hero Section -->
+    <main>
+      <!-- HERO -->
+      <section id="hero" class="hero-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center">
+            <h1 class="hero-title">
+              <span class="block">Welcome to</span>
+              <span class="block text-green-600">Fit India</span>
+            </h1>
+            <p class="hero-subtitle">
+              Get personalized diet plans and health recommendations through our
+              AI-powered chatbot. Tell us your preferences, and we'll help you
+              achieve your fitness goals.
+            </p>
+            <div class="mt-8">
+              <a href="chatbot.html" class="btn-primary"> Start Your Journey </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ABOUT -->
+      <section id="about" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+          <h2 class="text-3xl font-bold text-center mb-12">About Us</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="text-center md:text-left">
+              <h3 class="text-2xl font-bold mb-4">Our Mission</h3>
+              <p class="text-gray-600">
+                At Fit India, we believe in empowering individuals to achieve their
+                full potential through personalized health and fitness
+                solutions. Our AI-powered chatbot provides real-time guidance
+                and recommendations to help you reach your goals.
+              </p>
+            </div>
+            <div class="text-center md:text-left">
+              <h3 class="text-2xl font-bold mb-4">Our Vision</h3>
+              <p class="text-gray-600">
+                To become the leading platform for health and fitness in India,
+                offering accessible, effective, and sustainable solutions for
+                everyone. We are committed to promoting a culture of wellness
+                and well-being.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- PROGRAMS -->
+      <section id="programs" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+          <h2 class="text-3xl font-bold text-center mb-12">Our Programs</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white rounded-lg shadow-md p-6 text-center">
+              <h3 class="text-xl font-bold mb-4">AI Diet Planner</h3>
+              <p class="text-gray-600">
+                Get personalized meal plans and supplement recommendations
+                tailored to your goals and dietary preferences.
+              </p>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6 text-center">
+              <h3 class="text-xl font-bold mb-4">Fitness Consultations</h3>
+              <p class="text-gray-600">
+                Receive expert advice on exercise routines, nutrition, and
+                supplementation.
+              </p>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6 text-center">
+              <h3 class="text-xl font-bold mb-4">Wellness Coaching</h3>
+              <p class="text-gray-600">
+                Work with certified wellness coaches to develop sustainable
+                habits and achieve long-term success.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- REGISTRATION -->
+      <section id="register" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+          <h2 class="text-3xl font-bold text-center mb-12">Join Us</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="text-center md:text-left">
+              <h3 class="text-2xl font-bold mb-4">Ready to Transform?</h3>
+              <p class="text-gray-600">
+                Sign up today and start your journey towards a healthier,
+                fitter, and happier you.
+              </p>
+            </div>
+            <div class="text-center md:text-left">
+              <a href="chatbot.html" class="btn-primary">
+                Start Your Journey
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- CONTACT -->
+      <section id="contact" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+          <h2 class="text-3xl font-bold text-center mb-12">Contact Us</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+              <h3 class="text-xl font-bold mb-4">Visit Us</h3>
+              <p class="text-gray-600">
+                123 Fitness Lane, Bangalore, Karnataka 560001
+              </p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+              <h3 class="text-xl font-bold mb-4">Email Us</h3>
+              <p class="text-gray-600">info@fitindia.com</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+              <h3 class="text-xl font-bold mb-4">Call Us</h3>
+              <p class="text-gray-600">+91 123-456-7890</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+              <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+              <div class="flex space-x-4">
+                <a href="#" class="text-gray-600 hover:text-green-600">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zm-4 7a7 7 0 00-7 7h14a7 7 0 00-7-7zm0 0a7 7 0 01-7 7h14a7 7 0 01-7-7z"
+                    />
+                  </svg>
+                </a>
+                <a href="#" class="text-gray-600 hover:text-green-600">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17 8h2a4 4 0 014 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a4 4 0 014-4h2M7 12V7h10v5"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Video Background Section (if needed) -->
+      <section class="relative h-screen overflow-hidden">
+        <video autoplay loop muted playsinline class="absolute top-0 left-0 min-w-full min-h-full object-cover z-0">
+          <source src="assets/videos/0ee4ac8c-6485-4c41-8365-89212439a0e3_wm.mp4" type="video/mp4" />
+        </video>
+        <div class="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+        <div class="relative z-20 flex items-center justify-center h-full text-white px-4">
+          <div class="max-w-3xl text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Fitness in India</h2>
+            <p class="text-xl md:text-2xl">Join the revolution of health and wellness. Transform your life with expert guidance and premium fitness solutions.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Blog Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">
+          Latest Fitness Insights
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Blog Card 1 -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:-translate-y-1"
+          >
+            <img
+              src="assets/images/products/p_03b75324-f839-11ef-93af-8a2109fb20e3.jpg"
+              alt="Yoga and Wellness"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <span class="text-green-600 text-sm font-semibold">Wellness</span>
+              <h3 class="text-xl font-bold mt-2 mb-3">
+                The Rise of Holistic Wellness in India
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Discover how traditional practices are merging with modern
+                fitness approaches.
+              </p>
+              <a
+                href="#"
+                class="text-green-600 font-semibold hover:text-green-700"
+                >Read More →</a
+              >
+            </div>
+          </div>
+
+          <!-- Blog Card 2 -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:-translate-y-1"
+          >
+            <img
+              src="assets/images/products/p_98165876-f839-11ef-bebd-8e629c21273c_wm.png"
+              alt="Nutrition Guide"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <span class="text-green-600 text-sm font-semibold"
+                >Nutrition</span
+              >
+              <h3 class="text-xl font-bold mt-2 mb-3">
+                Indian Diet for Modern Fitness Goals
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Balance traditional Indian cuisine with contemporary nutrition
+                science.
+              </p>
+              <a
+                href="#"
+                class="text-green-600 font-semibold hover:text-green-700"
+                >Read More →</a
+              >
+            </div>
+          </div>
+
+          <!-- Blog Card 3 -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:-translate-y-1"
+          >
+            <img
+              src="assets/images/products/p_456c31ce-f850-11ef-b4b1-2ec4faa80e30.jpg"
+              alt="Fitness Technology"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <span class="text-green-600 text-sm font-semibold"
+                >Technology</span
+              >
+              <h3 class="text-xl font-bold mt-2 mb-3">
+                Tech-Driven Fitness Revolution
+              </h3>
+              <p class="text-gray-600 mb-4">
+                How technology is transforming the Indian fitness landscape.
+              </p>
+              <a
+                href="#"
+                class="text-green-600 font-semibold hover:text-green-700"
+                >Read More →</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- View All Posts Button -->
+        <div class="text-center mt-12">
+          <a href="#" class="btn-primary inline-flex items-center">
+            View All Posts
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 ml-2"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- After the "View All Posts" section -->
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">What Our Users Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="assets/images/testimonials/user2.jpeg" alt="User" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Priya Sharma</h4>
+                            <p class="text-sm text-gray-600">Lost 15kg in 6 months</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The AI diet planner completely transformed my approach to nutrition. The personalized meal plans and supplement recommendations were exactly what I needed!"</p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="assets/images/testimonials/user1.jpeg" alt="User" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Rahul Verma</h4>
+                            <p class="text-sm text-gray-600">Fitness Enthusiast</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The quality of supplements on Fit India is unmatched. Their protein powders have helped me achieve my muscle gain goals faster."</p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="assets/images/testimonials/user3.jpeg" alt="User" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Anjali Patel</h4>
+                            <p class="text-sm text-gray-600">Yoga Instructor</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"As a yoga instructor, I recommend Fit India to all my students. Their holistic approach to health and wellness is truly commendable."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="py-16 bg-green-600 text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="stat-card">
+                    <h3 class="text-4xl font-bold mb-2">50K+</h3>
+                    <p class="text-green-100">Active Users</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="text-4xl font-bold mb-2">1M+</h3>
+                    <p class="text-green-100">Meals Planned</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="text-4xl font-bold mb-2">500+</h3>
+                    <p class="text-green-100">Products</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="text-4xl font-bold mb-2">95%</h3>
+                    <p class="text-green-100">Success Rate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex flex-col items-center mb-6">
+          <!-- Remove this image -->
+          <!-- <img 
+                    src="images/products/p_c1eba946-f66b-11ef-80de-7689b6204309_wm.png" 
+                    alt="Fit India Logo" 
+                    class="h-16 w-auto mb-4 transition-transform hover:scale-105"
+                > -->
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 py-8">
+          <!-- Company Info -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Fit India</h3>
+            <p class="text-gray-600 text-sm">
+              Your trusted partner in health and fitness journey.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">
+              Quick Links
+            </h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="chatbot.html"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >Diet Planner</a
+                >
+              </li>
+              <li>
+                <a
+                  href="products.html"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >Shop</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Products -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Products</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="products.html?category=supplements"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >Supplements</a
+                >
+              </li>
+              <li>
+                <a
+                  href="products.html?category=equipment"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >Fitness Equipment</a
+                >
+              </li>
+              <li>
+                <a
+                  href="products.html?category=nutrition"
+                  class="text-gray-600 hover:text-green-600 text-sm"
+                  >Nutrition</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Contact Us</h3>
+            <ul class="space-y-2">
+              <li class="text-gray-600 text-sm">Email: support@fitindia.com</li>
+              <li class="text-gray-600 text-sm">Phone: +91 123-456-7890</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-gray-200 py-4">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-600 text-sm">
+              © 2024 Fit India. All rights reserved.
+            </p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+              <a
+                href="/privacy"
+                class="text-gray-600 hover:text-green-600 text-sm"
+                >Privacy Policy</a
+              >
+              <a
+                href="/terms"
+                class="text-gray-600 hover:text-green-600 text-sm"
+                >Terms of Service</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      class ProductStore {
+        constructor() {
+          this.products = [
+            {
+              id: 1,
+              name: "Whey Protein Isolate",
+              category: "supplements",
+              price: 7999,
+              image: "assets/images/products/whey-protein.jpg",
+              description:
+                "High-quality protein supplement for muscle recovery",
+              dietTypes: ["vegetarian", "non-veg"],
+              imageSize: {
+                width: "150px",
+                height: "150px",
+              },
+            },
+            {
+              id: 2,
+              name: "Yoga Mat",
+              category: "equipment",
+              price: 799,
+              image: "assets/images/products/yoga-mat.webp",
+              description: "Non-slip exercise mat for yoga and fitness",
+              dietTypes: ["all"],
+              imageSize: {
+                width: "150px",
+                height: "150px",
+              },
+            },
+            {
+              id: 3,
+              name: "Plant-Based Protein",
+              category: "supplements",
+              price: 2199,
+              image: "assets/images/products/shopping.webp",
+              description: "Vegan protein powder blend",
+              dietTypes: ["vegan", "vegetarian"],
+              imageSize: {
+                width: "150px",
+                height: "150px",
+              },
+            },
+            {
+              id: 4,
+              name: "Multivitamin Gummies",
+              category: "nutrition",
+              price: 499,
+              image: "assets/images/products/multivitamin-gummies.jpg",
+              description:
+                "Delicious gummies packed with essential vitamins and minerals",
+              dietTypes: ["all"],
+              imageSize: {
+                width: "150px",
+                height: "150px",
+              },
+            },
+            {
+              id: 5,
+              name: "Omega-3 Fish Oil",
+              category: "nutrition",
+              price: 999,
+              image: "assets/images/products/omega-3-fish-oil.jpg",
+              description:
+                "High-quality fish oil supplement for heart and brain health",
+              dietTypes: ["non-veg"],
+              imageSize: {
+                width: "150px",
+                height: "150px",
+              },
+            },
+            {
+              id: 6,
+              name: "Green Superfood Powder",
+              category: "nutrition",
+              price: 1499,
+              image: "assets/images/products/green-superfood-powder.jpg",
+              description:
+                "Nutrient-dense powder made from organic greens and superfoods",
+              dietTypes: ["vegan", "vegetarian"],
+              imageSize: {
+                width: "150px",
+                height: "150px",
+              },
+            },
+            {
+              id: 7,
+              name: "Probiotic Capsules",
+              category: "nutrition",
+              price: 799,
+              image: "assets/images/products/probiotic-capsules.jpg",
+              description: "Supports digestive health and boosts immunity",
+              dietTypes: ["all"],
+              imageSize: {
+                width: "150px",
+                height: "150px",
+              },
+            },
+            {
+              id: 8,
+              name: "Vitamin D3 Drops",
+              category: "nutrition",
+              price: 599,
+              image: "assets/images/products/vitamin-d3-drops.jpg",
+              description:
+                "Essential vitamin for bone health and immune support",
+              dietTypes: ["all"],
+              imageSize: {
+                width: "150px",
+                height: "150px",
+              },
+            },
+          ];
+
+          this.cart = JSON.parse(localStorage.getItem("cart")) || [];
+          this.initializeStore();
+        }
+
+        // ... rest of the class
+      }
+
+      // Initialize the store
+      const productStore = new ProductStore();
+    </script>
+  </body>
+</html>
